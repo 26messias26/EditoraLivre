@@ -1,0 +1,90 @@
+<div class="content d-flex">
+    <div class="col-1"></div>
+    <div class="col-2 me-5">
+        <ul class="nav nav-pills mb-3 d-flex flex-column" id="pills-tab" role="tablist">
+            <li class="nav-item mb-2 " role="presentation">
+                <button class="nav-link btn col-12 border rounded active" id="pills-my-publi-tab" data-bs-toggle="pill" data-bs-target="#pills-my-publi" type="button" role="tab" aria-controls="pills-my-publi" aria-selected="true">Minhas publicações</button>
+            </li>
+            <li class="nav-item mb-2 " role="presentation">
+                <button class="nav-link btn col-12 border rounded" id="pills-amigos-tab" data-bs-toggle="pill" data-bs-target="#pills-amigos" type="button" role="tab" aria-controls="pills-amigos" aria-selected="false">Amigos</button>
+            </li>
+            <li class="nav-item mb-2 " role="presentation">
+                <button class="nav-link btn col-12 border rounded" id="pills-edit-tab" data-bs-toggle="pill" data-bs-target="#pills-edit" type="button" role="tab" aria-controls="pills-edit" aria-selected="false">Editar conta</button>
+            </li>
+            <li class="nav-item mb-2 " role="presentation">
+                <button class="nav-link btn col-12 border rounded" id="pills-verificado-tab" data-bs-toggle="pill" data-bs-target="#pills-verificado" type="button" role="tab" aria-controls="pills-verificado" aria-selected="false">Verificado</button>
+            </li>
+            <li class="nav-item mb-2 ">
+                <%= link_to "Excluir Conta", registration_path(current_user), method: :delete, data: { confirm: "Tem certeza que deseja excluir sua conta?" }, class: "btn col-12 btn-outline-danger" %>
+            </li>
+            <li class="nav-item mb-2 ">
+                <%= link_to "Sair",  logout_profile_path , class: "btn btn-outline-primary col-12" %>
+            </li>
+            
+        </ul>
+    </div>
+
+    <div class="tab-content col-6" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-my-publi" role="tabpanel" aria-labelledby="pills-my-publi-tab" tabindex="0">
+            <div class="feed-my-publi">
+                <% @user.publications.each do |publication| %>
+                    
+                    <div class="card mb-3" style="height:500px;">
+                            <%#   HEAD  %>
+                        <div class="card-header d-flex">
+                            <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
+                            
+                            <span class="me-3 ms-2" ><%=current_user.nome%></span>
+                            
+                            <span class="" >selo</span>
+                            
+                        </div>
+                        
+                        <div class="card-body d-flex">
+                            <%#   FOTO  %>
+                            <div class="foto col-6 h-100 border rounded">
+                            teste
+                            </div>
+                            <%#   DESCRIAÇÃO  %>
+                            <div class="descricao col-6 h-100  px-2">
+                                <h5 class="card-title"><%=publication.titulo%></h5>
+                                <p class="card-text"><%=publication.descricao%></p>
+                                
+                            </div>
+                        </div>
+                        <%#   FOOTER  %>
+                        <div class="card-footer text-body-secondary d-flex align-items-center">
+                            <span calss="me-1">Colaboradores:</span>
+                            <div class="d-flex">
+                                <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
+                                <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <% end %>
+            </div>      
+        </div>
+        <div class="tab-pane fade" id="pills-amigos" role="tabpanel" aria-labelledby="pills-amigos-tab" tabindex="0">
+            
+            <%# AMIGOS DO USUARIO %>
+
+            <%= render partial: "home/amigos"%>
+
+        </div>
+        <div class="tab-pane fade" id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab" tabindex="0">
+            <%= render "formEdit"%>
+        </div>
+        <div class="tab-pane fade" id="pills-verificado" role="tabpanel" aria-labelledby="pills-verificado-tab" tabindex="0">
+            <div class="card">
+                <h5 class="card-header">Featured</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header">
+  <div class="card-header fw-bold">
     Entre Agora!
   </div>
   <div class="card-body">
@@ -14,9 +14,10 @@
     
         <%= f.submit 'Entrar', class:"btn btn-primary col-12 mt-2" %>
     <% end %>
-
-    <div>
-        <%= link_to 'Criar nova conta', new_user_registration_path %>
+    <div class="mt-2">
+      <span >
+          Ainda não tem uma conta? <%= link_to 'Crie uma conta', new_user_registration_path %>
+      </span>
     </div>
-  </div>
+</div>
 </div>

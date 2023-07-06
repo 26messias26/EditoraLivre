@@ -1,14 +1,23 @@
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Editora livre</span>
+    <span class="navbar-brand mb-0 h1">
+    <%= link_to "Editora livre", root_path, class: "navbar-brand" %></span>
     <div class="d-flex align-items-center">
-
-        <span class="" >selo</span>
-        <span class="me-3 ms-2" >nome</span>
-            <% if current_user %>
-                <%= link_to content_tag(:div, class:"rounded-5",style:"width:40px; height:40px;" ), user_path(current_user.id) %>
-            <%end%>
-
+      
+      <% if user_signed_in? %>
+        
+        <% if current_user.verificado %>
+          <span class="" >selo</span>
+        <% end %>
+        
+        <span class="me-3 ms-2" ><%=current_user.nome%></span>
+        <%= link_to profile_path do %>
+          <%= content_tag(:div,"" ,class:"rounded-5 bg-secondary-subtle",style:"width:40px; height:40px;" ) %>
+        <%end%>
+        
+      <% else%>
+        <div class="rounded-5 bg-secondary-subtle" style="width:40px; height:40px;"></div>
+      <%end%>
     </div>
   </div>
 </nav>

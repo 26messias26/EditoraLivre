@@ -4,7 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
 
+  validates :nome, presence: true
   
+  has_many :publications
+
   has_many :amigos
   has_many :amigos_users, through: :amigos, source: :amigo
 

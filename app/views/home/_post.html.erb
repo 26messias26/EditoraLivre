@@ -1,32 +1,35 @@
-<div class="card mb-3" style="height:500px;">
-    <%#   HEAD  %>
-  <div class="card-header d-flex">
-    <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
-    
-    <span class="me-3 ms-2" >nome</span>
-    
-    <span class="" >selo</span>
-    
-  </div>
-  
-  <div class="card-body d-flex">
-    <%#   FOTO  %>
-    <div class="foto col-6 h-100 border rounded">
-    teste
+<% publications.each do |publication| %>
+  <div class="card mb-3" style="height:500px;">
+      <%#   HEAD  %>
+    <div class="card-header d-flex">
+      <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
+      
+      <span class="me-3 ms-2" ><%=publication.user.nome%></span>
+      
+      <span class="" >selo</span>
+      
     </div>
-    <%#   DESCRIAÇÃO  %>
-    <div class="descricao col-6 h-100  px-2">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        
+    
+    <div class="card-body d-flex">
+      <%#   FOTO  %>
+      <div class="foto col-6 h-100 border rounded">
+      teste
+      </div>
+      <%#   DESCRIAÇÃO  %>
+      <div class="descricao col-6 h-100  px-2">
+          <h5 class="card-title"><%=publication.titulo%></h5>
+          <p class="card-text"><%=publication.descricao%></p>
+          <p>Link: <%= publication.link%></p>
+          
+      </div>
+    </div>
+    <%#   FOOTER  %>
+    <div class="card-footer text-body-secondary d-flex align-items-center">
+      <span calss="me-1">Colaboradores:</span>
+      <div class="d-flex">
+          <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
+          <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
+      </div>
     </div>
   </div>
-  <%#   FOOTER  %>
-  <div class="card-footer text-body-secondary d-flex align-items-center">
-    <span calss="me-1">Colaboradores:</span>
-    <div class="d-flex">
-        <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
-        <div title="Nome da pessoa" class="bg-body-secondary rounded-5 ms-1" style="width:24px; height:24px;"></div>
-    </div>
-  </div>
-</div>
+<%end%>

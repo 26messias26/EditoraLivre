@@ -29,16 +29,11 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"col-12 form-control"  %>
       </div>
 
-      <div class="field">
-        <%= f.label :plano %>
-        <%= f.select :plano, options_for_select({'Básico' => 1, 'Plus' => 2, 'Prêmio' => 3 }), class:"col-12 form-control" %>
-      </div>
-
       <div class="actions">
-        <%= f.submit "Entrar", class:"col-12 my-2 mt-2 btn btn-primary" %>
+        <%= f.submit "Criar conta", class:"col-12 my-2 mt-2 btn btn-primary" %>
       </div>
     <% end %>
 
-    <%= render "users/shared/links" %>
+    <span>Já tem uma conta? <%= link_to "Entrar", root_path %></span>
   </div>
 </div>

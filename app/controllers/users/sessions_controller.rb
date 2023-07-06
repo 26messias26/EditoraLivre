@@ -17,6 +17,9 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  def current_ability
+    @current_ability ||= Ability.new(current_user)
+  end
 
   # protected
 
@@ -24,4 +27,5 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
 end

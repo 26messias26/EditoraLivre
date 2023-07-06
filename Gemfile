@@ -71,6 +71,8 @@ group :development do
   gem "web-console"
   
   gem 'faker', '~> 3.2'
+
+  gem 'letter_opener_web', '~> 2.0'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

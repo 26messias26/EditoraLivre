@@ -1,9 +1,35 @@
 <div class="contents col-12 h-100 d-flex">
     <div class="col-1"></div>
     <div class="feed col-7 me-5" >
-        <%= render partial: "home/post"%>
-        <%= render partial: "home/post"%>
-        <%= render partial: "home/post"%>
+        <% if user_signed_in? %>
+            <div class="card mb-2">
+                <div class="card-header ">
+                    Mostre seu trabalho!
+                </div>
+                <div class="card-body">
+                    
+                        <%= form_for @publication, url: publications_path do |f| %>
+                            <div class="field ">
+                                <%= f.label :titulo %>
+                                <%= f.text_field :titulo, class:"form-control" %>
+                            </div>
+
+                            <div class="field ">
+                                <%= f.label :descricao %>
+                                <%= f.text_area :descricao, class:"form-control" %>
+                            </div>
+                            <div class="field ">
+                                <%= f.label :link %>
+                                <%= f.text_field :link, class:"form-control" %>
+                            </div>
+                            
+                            <%= f.submit "Criar Publicação", class:"btn btn-primary mt-2" %>
+                        <% end %>
+                    
+                </div>
+            </div>
+        <% end %>
+        <%= render partial: "home/post", locals: {publications: @publications}%>
     </div>
     
     <div class="right-area col-3 position-fixed" style="right:50px;">
